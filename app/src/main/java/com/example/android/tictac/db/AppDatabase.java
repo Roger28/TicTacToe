@@ -47,6 +47,8 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            this.jogadorDao.insert(new Jogador("Player 1", 0));
+            this.jogadorDao.insert(new Jogador("Player 2", 0));
             return null;
         }
     }

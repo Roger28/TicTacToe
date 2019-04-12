@@ -54,14 +54,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         mViewModel = ViewModelProviders.of(this).get(JogadorViewModel.class);
-        mViewModel.insert(new Jogador("Player 1", 0));
-        mViewModel.insert(new Jogador("Player 2", 0));
         mViewModel.getJogador().observe(this, new Observer<List<Jogador>>() {
             @Override
             public void onChanged(@Nullable List<Jogador> jogador) {
                 jogadores = jogador;
-                textViewPlayer1.setText(jogador.get(0).getNome() + ": " + jogador.get(0).getPontuacao());
-                textViewPlayer2.setText(jogador.get(1).getNome() + ": " + jogador.get(1).getPontuacao());
+                if(jogador.isEmpty()){
+                    textViewPlayer1.setText("Player 1: " + jogador.get(0).getPontuacao());
+                    textViewPlayer2.setText("Player 2: " + jogador.get(1).getPontuacao());
+                }else {
+                    textViewPlayer1.setText(jogador.get(0).getNome() + ": " + jogador.get(0).getPontuacao());
+                    textViewPlayer2.setText(jogador.get(1).getNome() + ": " + jogador.get(1).getPontuacao());
+                }
             }
         });
 
