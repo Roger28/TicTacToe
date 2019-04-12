@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="erro">Insira os nomes dos jogadores!</string>
+
+</resources>
